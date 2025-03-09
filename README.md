@@ -94,3 +94,60 @@ _docker start -ai mi-almalinux_
 ### 8. To delete a container: 
 
 _docker rm mi-almalinux_
+
+
+## Create your own image of AlmaLinux 9
+
+If you want to customize the AlmaLinux 9 image, follow these steps:
+
+### 1. Create a Dockerfile
+
+_nano Dockerfile_
+
+Add the following:
+
+_Use AlmaLinux 9 as a base
+FROM almalinux:9
+
+Update packages and clean cache
+RUN dnf -y update && dnf clean all
+
+Set default shell
+CMD [“/bin/bash”]_
+
+Save the file (CTRL + X, then Y and Enter).
+
+### 2. Building a personalized image
+
+_docker build -t mi-almalinux9 ._
+
+### 3. Verify the created image
+
+_docker images_
+
+You should see mi-almalinux9 on the list.
+
+### 4. Run a container with the new image
+
+_docker run -it mi-almalinux9_
+
+To share or save the image:
+
+_docker save -o almalinux9.tar mi-almalinux9_
+
+To upload it to another system:
+
+_docker load -i almalinux9.tar_
+
+If you want to upload it to Docker Hub, log in first:
+
+_docker login_
+
+Then they label and upload the image:
+
+_docker tag mi-almalinux9 <tu_usuario>/mi-almalinux9
+docker push <tu_usuario>/mi-almalinux9_
+
+## References
+
+
