@@ -150,4 +150,12 @@ docker push <tu_usuario>/mi-almalinux9_
 
 ## References
 
+https://docs.docker.com/desktop/setup/install/mac-install/
 
+https://hub.docker.com/_/almalinux
+
+https://wiki.almalinux.org/Contribute-to-Documentation.html
+
+https://docs.docker.com/reference/cli/docker/image/save/
+
+https://docs.docker.com/reference/cli/docker/image/load/
